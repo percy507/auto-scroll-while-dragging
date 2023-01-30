@@ -1,0 +1,46 @@
+{
+  "name": "auto-scroll-while-dragging",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "percy507",
+  "description": "Enhance the auto-scrolling behavior while dragging.",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": "github:percy507/auto-scroll-while-dragging",
+  "homepage": "https://auto-scroll-while-dragging.vercel.app/",
+  "bugs": "https://github.com/percy507/auto-scroll-while-dragging/issues",
+  "keywords": [
+    "auto-scrolling",
+    "dragging"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "show": "serve ./show",
+    "watch": "rollup -cw",
+    "build": "rollup -c",
+    "lint": "pnpm lint:jsFix && pnpm lint:format",
+    "lint:jsFix": "eslint --ext .jsx,.js,.ts,.tsx --fix ./src",
+    "lint:format": "prettier --loglevel warn --write \"./src/**/*.{js,jsx,ts,tsx,css,less,md,json}\"",
+    "type-check": "tsc"
+  },
+  "devDependencies": {
+    "@rollup/plugin-eslint": "^8.0.1",
+    "@types/node": "^16.11.10",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "esbuild": "^0.13.15",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "prettier": "^2.4.1",
+    "rollup": "^2.60.1",
+    "rollup-plugin-dts": "^4.0.1",
+    "rollup-plugin-esbuild": "^4.7.2",
+    "serve": "^14.2.0",
+    "typescript": "4.7.3"
+  }
+}
