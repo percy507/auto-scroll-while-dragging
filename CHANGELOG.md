@@ -14,6 +14,10 @@ Feature1
 Feature2
 -->
 
+## 1.0.1 (2023-01-30)
+
+Update workflow.
+
 ## 1.0.0 (2023-01-30)
 
 Init package.
