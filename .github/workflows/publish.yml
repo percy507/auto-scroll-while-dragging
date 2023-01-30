@@ -1,0 +1,32 @@
+name: Publish to NPM
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch: # support manually trigger a workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: '7.9.5'
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          cache: 'pnpm'
+
+      - name: Install dependencies and build 🔧
+        run: pnpm i && pnpm build
+
+      - name: Publish package on NPM 📦
+        run: |
+          rm .npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+          pnpm publish --no-git-checks

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test package "auto-scroll-while-dragging"</title>
+    <style>
+      .container {
+        display: flex;
+        margin: 150px 0;
+        justify-content: center;
+        gap: 40px;
+      }
+
+      .scrollBlock {
+        position: relative;
+        width: 400px;
+        height: 500px;
+        overflow: auto;
+        border: 1px solid #ccc;
+        text-align: center;
+      }
+
+      .scrollBlock h3 {
+        position: sticky;
+        top: 10px;
+        background-color: #fff;
+        padding: 6px 12px;
+      }
+
+      .dragHandle {
+        width: 300px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        color: #fff;
+        margin: auto;
+        background-color: slateblue;
+      }
+
+      .longHolder {
+        height: 5000px;
+        width: 50%;
+        margin: 20px auto;
+        background: linear-gradient(to bottom, #f6f6f6, #333);
+      }
+
+      .bottom {
+        height: 10px;
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="scrollBlock">
+        <h3>Without the package</h3>
+        <div class="dragHandle" draggable="true">Drag Me To Bottom</div>
+        <div class="longHolder"></div>
+        <div class="bottom"></div>
+      </div>
+      <div class="scrollBlock" id="block2">
+        <h3>With the package (gap is 150)</h3>
+        <div class="dragHandle" draggable="true">Drag Me To Bottom</div>
+        <div class="longHolder"></div>
+        <div class="bottom"></div>
+      </div>
+    </div>
+  </body>
+
+  <script type="module">
+    import { autoScrollWhileDragging } from './auto-scroll-while-dragging.js';
+    const block2 = document.getElementById('block2');
+
+    autoScrollWhileDragging({
+      rootEl: block2,
+      gap: 150,
+    });
+  </script>
+</html>
