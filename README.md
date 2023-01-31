@@ -44,6 +44,7 @@ function MyComponent() {
 
 - For some specific cases, eg: using with react-dnd and virtual list. You may need **manually bind the drag behavior with the exported handlers** (eg: `autoScrollWhileDragging.dragHandler`).
   - Why? Because in virtual list, the target which emit drag event might be removed from DOM tree during scrolling.
+  - Here is an example, pls check this PR (https://github.com/brimdata/react-arborist/pull/104/files#diff-3c486835e7c2f717f2f48884fc39d480aaa737c719278ed09aecb04d4724fcb1R48)
 
 ## Docs
 
